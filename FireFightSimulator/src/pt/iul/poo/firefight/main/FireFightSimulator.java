@@ -20,7 +20,7 @@ import pt.iul.poo.firefight.objects.*;
 import pt.iul.poo.firefight.tools.FireFightObject;
 
 
-public class FireSimulator implements Observer {
+public class FireFightSimulator implements Observer {
 	
 
 	private static final String CONFIG_DIR = "levels";
@@ -28,10 +28,10 @@ public class FireSimulator implements Observer {
 	private List<FireFightObject> allObjects = new ArrayList<>();
 	private Set<Point> allPositions = new HashSet<>();
 	private Vector<Set<Point>> allColumns = new Stack<>();
-	private static FireSimulator INSTANCE = null;
+	private static FireFightSimulator INSTANCE = null;
 
 	
-	private FireSimulator() { 
+	private FireFightSimulator() { 
 		try {
 			readMap(CONFIG_DIR + "/" + CONFIG_FILE);
 			storeAllPositions();
@@ -45,9 +45,9 @@ public class FireSimulator implements Observer {
 	}
 	
 	
-	public static FireSimulator getInstance() {
+	public static FireFightSimulator getInstance() {
 		if (INSTANCE == null) { 
-			INSTANCE = new FireSimulator();
+			INSTANCE = new FireFightSimulator();
 		}
 		return INSTANCE;
 	}
@@ -190,7 +190,7 @@ public class FireSimulator implements Observer {
 	
 	public static int countFireInColumnX (int x) {
 		int counter = 0;
-		Set<Point> temp = FireSimulator.getInstance().getAllColumns().get(x);
+		Set<Point> temp = FireFightSimulator.getInstance().getAllColumns().get(x);
 		for(Point p : temp) {
 			if(FireFightObject.getTileFromMainList(p) instanceof Fire) {
 				counter++;

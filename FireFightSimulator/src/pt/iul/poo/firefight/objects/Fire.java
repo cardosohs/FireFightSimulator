@@ -2,7 +2,7 @@ package pt.iul.poo.firefight.objects;
 import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
-import pt.iul.poo.firefight.main.FireSimulator;
+import pt.iul.poo.firefight.main.FireFightSimulator;
 import pt.iul.poo.firefight.tools.FireFightObject;
 import pt.iul.poo.firefight.tools.Forest;
 
@@ -32,7 +32,7 @@ public class Fire extends FireFightObject {
 	
 	
 	public static void spreadAllFires() {
-		List<FireFightObject> temp = new ArrayList<FireFightObject>(FireSimulator.getInstance().getAllObjects());
+		List<FireFightObject> temp = new ArrayList<FireFightObject>(FireFightSimulator.getInstance().getAllObjects());
 		for (FireFightObject f : temp) {
 			if (f instanceof Fire) {
 				 ((Fire)f).spread();
@@ -47,7 +47,7 @@ public class Fire extends FireFightObject {
 			FireFightObject obj = FireFightObject.getTileFromMainList(p);
 			if(obj instanceof Forest) {
 				if(((Forest)obj).mayCatchFire()){
-					FireSimulator.getInstance().getAllObjects().add(new Fire (new Point (obj.getPosition())));
+					FireFightSimulator.getInstance().getAllObjects().add(new Fire (new Point (obj.getPosition())));
 				}
 			}
 		}
@@ -55,7 +55,7 @@ public class Fire extends FireFightObject {
 	
 	
 	public static void incrementCounter(){
-		for (FireFightObject f : FireSimulator.getInstance().getAllObjects())
+		for (FireFightObject f : FireFightSimulator.getInstance().getAllObjects())
 			if (f instanceof Fire)
 				((Fire)f).setCounter(((Fire)f).getCounter() + 1);
 	}
@@ -63,7 +63,7 @@ public class Fire extends FireFightObject {
 	
 	public static Fire getFireFromMainList(Point position) {
 		Fire temp = null;
-		for (FireFightObject f : FireSimulator.getInstance().getAllObjects()) {
+		for (FireFightObject f : FireFightSimulator.getInstance().getAllObjects()) {
 			if (f.getPosition().equals(position)) {
 				if (f instanceof Fire)
 					temp = (Fire)f;

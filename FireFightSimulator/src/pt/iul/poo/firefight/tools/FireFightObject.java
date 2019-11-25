@@ -7,7 +7,7 @@ import java.util.List;
 import pt.iul.poo.firefight.gui.ImageMatrixGUI;
 import pt.iul.poo.firefight.gui.ImageTile;
 import pt.iul.poo.firefight.utils.Direction;
-import pt.iul.poo.firefight.main.FireSimulator;
+import pt.iul.poo.firefight.main.FireFightSimulator;
 import pt.iul.poo.firefight.objects.Bulldozer;
 import pt.iul.poo.firefight.objects.Eucaliptus;
 import pt.iul.poo.firefight.objects.Fire;
@@ -93,7 +93,7 @@ public class FireFightObject implements ImageTile{
 	
 	public static FireFightObject getTileFromMainList (Point position) {
 		FireFightObject temp = null;
-		for (FireFightObject f : FireSimulator.getInstance().getAllObjects()) {
+		for (FireFightObject f : FireFightSimulator.getInstance().getAllObjects()) {
 			if (f.getPosition().equals(position)) {
 				temp = f;
 			}

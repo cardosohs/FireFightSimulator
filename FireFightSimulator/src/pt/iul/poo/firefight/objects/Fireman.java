@@ -4,7 +4,7 @@ import java.awt.Point;
 
 
 import pt.iul.poo.firefight.utils.Direction;
-import pt.iul.poo.firefight.main.FireSimulator;
+import pt.iul.poo.firefight.main.FireFightSimulator;
 import pt.iul.poo.firefight.tools.FireFightObject;
 import pt.iul.poo.firefight.tools.FireFightSupport;
 
@@ -41,12 +41,12 @@ public class Fireman extends FireFightSupport {
 	
 	private void putOutFire(Point p) {
 		Fire fire = Fire.getFireFromMainList(p);
-		FireSimulator.getInstance().getAllObjects().remove(fire);
+		FireFightSimulator.getInstance().getAllObjects().remove(fire);
 	}
 	
 	
 	public static void callPlane() {
-		FireSimulator.getInstance().getAllObjects().add(new Plane(new Point(Plane.startPosition())));	
+		FireFightSimulator.getInstance().getAllObjects().add(new Plane(new Point(Plane.startPosition())));	
 	}
 	
 	public void hideFireman() {
@@ -61,7 +61,7 @@ public class Fireman extends FireFightSupport {
 	
 	public static Fireman getFiremanFromMainList() {
 		Fireman temp = null;
-		for (FireFightObject f :  FireSimulator.getInstance().getAllObjects()) {
+		for (FireFightObject f :  FireFightSimulator.getInstance().getAllObjects()) {
 			if (f instanceof Fireman) {
 				temp = (Fireman)f;
 			}

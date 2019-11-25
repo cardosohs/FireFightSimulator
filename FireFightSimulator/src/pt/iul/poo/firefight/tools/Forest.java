@@ -2,7 +2,7 @@ package pt.iul.poo.firefight.tools;
 
 import java.awt.Point;
 import java.util.Random;
-import pt.iul.poo.firefight.main.FireSimulator;
+import pt.iul.poo.firefight.main.FireFightSimulator;
 import pt.iul.poo.firefight.objects.Burnt;
 import pt.iul.poo.firefight.objects.Fire;
 
@@ -70,7 +70,7 @@ public class Forest extends FireFightObject{
 
 	public static Forest getForestFromMainList(Point position) {
 		Forest temp = null;
-		for (FireFightObject f : FireSimulator.getInstance().getAllObjects()) {
+		for (FireFightObject f : FireFightSimulator.getInstance().getAllObjects()) {
 			if (f.getPosition().equals(position)) {
 				if (f instanceof Forest)
 					temp = (Forest)f;

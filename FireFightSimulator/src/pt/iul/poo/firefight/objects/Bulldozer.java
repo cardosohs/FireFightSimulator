@@ -2,7 +2,7 @@ package pt.iul.poo.firefight.objects;
 
 import java.awt.Point;
 import pt.iul.poo.firefight.utils.Direction;
-import pt.iul.poo.firefight.main.FireSimulator;
+import pt.iul.poo.firefight.main.FireFightSimulator;
 import pt.iul.poo.firefight.objects.Bulldozer;
 import pt.iul.poo.firefight.tools.*;
 
@@ -60,21 +60,21 @@ public class Bulldozer extends FireFightSupport {
 			
 	private void takeDownTrees(Point p) {
 		Forest forest = Forest.getForestFromMainList(p);
-		FireSimulator.getInstance().getAllObjects().remove(forest);
-		FireSimulator.getInstance().getAllObjects().add(new Land(new Point(p)));
+		FireFightSimulator.getInstance().getAllObjects().remove(forest);
+		FireFightSimulator.getInstance().getAllObjects().add(new Land(new Point(p)));
 	}
 	
 	
 	private void cleanTerrain(Point p) {
 		Burnt burnt = Burnt.getBurntFromMainList(p);
-		FireSimulator.getInstance().getAllObjects().remove(burnt);
-		FireSimulator.getInstance().getAllObjects().add(new Land(new Point(p)));
+		FireFightSimulator.getInstance().getAllObjects().remove(burnt);
+		FireFightSimulator.getInstance().getAllObjects().add(new Land(new Point(p)));
 	}
 	
 	
 	public static Bulldozer getBulldozerFromMainList() {
 		Bulldozer temp = null;
-		for (FireFightObject f : FireSimulator.getInstance().getAllObjects()) {
+		for (FireFightObject f : FireFightSimulator.getInstance().getAllObjects()) {
 			if (f instanceof Bulldozer) {
 				temp = (Bulldozer)f;
 			}

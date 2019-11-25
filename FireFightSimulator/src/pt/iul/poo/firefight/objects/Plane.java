@@ -1,7 +1,7 @@
 package pt.iul.poo.firefight.objects;
 
 import java.awt.Point;
-import pt.iul.poo.firefight.main.FireSimulator;
+import pt.iul.poo.firefight.main.FireFightSimulator;
 import pt.iul.poo.firefight.tools.FireFightObject;
 import pt.iul.poo.firefight.tools.FireFightSupport;
 import java.util.ArrayList;
@@ -50,23 +50,23 @@ public class Plane extends FireFightSupport implements Observer{
 		if (Direction.isDirection(key) && isWithinBoundaries(getPosition())) {
 			move(Direction.UP);
 				if(!isWithinBoundaries(getPosition())) {
-					FireSimulator.getInstance().getAllObjects().remove(this);
+					FireFightSimulator.getInstance().getAllObjects().remove(this);
 				}
 		}
-		FireSimulator.getInstance().updateGUI();
+		FireFightSimulator.getInstance().updateGUI();
 	}
 	
 	
 	public static Point startPosition() {
-		return new Point (FireSimulator.columnWithMostFire(), (int)ImageMatrixGUI.getInstance().getGridDimension().getHeight() - 1);
+		return new Point (FireFightSimulator.columnWithMostFire(), (int)ImageMatrixGUI.getInstance().getGridDimension().getHeight() - 1);
 	}
 
 	
 	private void putOutFire(Point here, Point there) {
 		List<Fire> toPutOut = burningTilesInBetween(here, there);
 		for (Fire f : toPutOut) {
-			FireSimulator.getInstance().getAllObjects().remove((Fire)f);
-			FireSimulator.getInstance().getAllObjects().add(new Burnt(new Point(f.getPosition())));
+			FireFightSimulator.getInstance().getAllObjects().remove((Fire)f);
+			FireFightSimulator.getInstance().getAllObjects().add(new Burnt(new Point(f.getPosition())));
 		}
 	}
 	
@@ -95,7 +95,7 @@ public class Plane extends FireFightSupport implements Observer{
 	
 	public static Plane getPlaneFromMainList() {
 		Plane temp = null;
-		for (FireFightObject f :  FireSimulator.getInstance().getAllObjects()) {
+		for (FireFightObject f :  FireFightSimulator.getInstance().getAllObjects()) {
 			if (f instanceof Plane) {
 				temp = (Plane)f;
 			}
