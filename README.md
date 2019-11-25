@@ -1,2 +1,6 @@
 # FireFightSimulator
-Projecto de Programação Orientada por Objectos (JAVA)
+Projecto de Programação Orientada por Objectos
+------
+## Principais conceitos aprendidos:
+- Design Patterns: Singleton, Factory, Observer
+- Java interface, abstract class
