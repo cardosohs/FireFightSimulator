@@ -3,5 +3,5 @@
 ------
 ### Principais conceitos aprendidos:
 - Design Patterns: Singleton, Factory, Observer;
-- Java interface, abstract class;
+- Interface, Abstract class, Exceptions, Inheritance;
 - Data structures: List, Vector, Set;
