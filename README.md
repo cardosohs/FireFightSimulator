@@ -2,7 +2,7 @@
 ### Summary
 One of the games I developed in college.
 ### Functionality
-- Anexos/TrabalhoFinalPOO.pdf
+- [README.md] (Anexos/TrabalhoFinalPOO.pdf)
 ### Tech Stack
 - Java;
 ### Main concepts learned
