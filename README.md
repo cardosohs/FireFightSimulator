@@ -2,7 +2,7 @@
 ### Summary
 One of the games I developed in college.
 ### Functionality
-- [README.md] (Anexos/TrabalhoFinalPOO.pdf)
+- https://github.com/cardosohs/FireFightSimulator/blob/master/Anexos/TrabalhoFinalPOO.pdf
 ### Tech Stack
 - Java;
 ### Main concepts learned
