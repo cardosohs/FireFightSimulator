@@ -22,9 +22,7 @@ import pt.iul.poo.firefight.tools.FireFightObject;
 
 public class FireFightSimulator implements Observer {
 	
-
-	private static final String CONFIG_DIR = "levels";
-	private static final String CONFIG_FILE = "landscape.txt";
+	private static final String MAP_FILE_PATH = "levels/landscape.txt";
 	private List<FireFightObject> allObjects = new ArrayList<>();
 	private Set<Point> allPositions = new HashSet<>();
 	private Vector<Set<Point>> allColumns = new Stack<>();
@@ -33,7 +31,7 @@ public class FireFightSimulator implements Observer {
 	
 	private FireFightSimulator() { 
 		try {
-			readMap(CONFIG_DIR + "/" + CONFIG_FILE);
+			readMap(MAP_FILE_PATH);
 			storeAllPositions();
 			createColumns();
 			ImageMatrixGUI.getInstance().addObserver(this);
